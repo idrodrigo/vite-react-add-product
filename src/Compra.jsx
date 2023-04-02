@@ -24,14 +24,14 @@ const reducer = (state, action) => {
     case types.menos:
       return state.map(e =>
         (action.payload === e.id && e.cantidad > 1)
-          ? { ...e, cantidad: e.cantidad - 1 }
+          ? { ...e, cantidad: Number(e.cantidad) - 1 }
           : e
       )
 
     case types.mas:
       return state.map(e =>
         (action.payload === e.id)
-          ? { ...e, cantidad: e.cantidad + 1 }
+          ? { ...e, cantidad: Number(e.cantidad) + 1 }
           : e
       )
     case types.delete:
